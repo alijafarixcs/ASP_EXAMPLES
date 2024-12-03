@@ -20,7 +20,7 @@ namespace ASP_EXAMPLES.Controllers
 
         public IActionResult Privacy()
         {
-            return View();
+            return View();//fine 2
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
