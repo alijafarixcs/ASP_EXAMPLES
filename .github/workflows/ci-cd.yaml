@@ -27,4 +27,4 @@ jobs:
 
 
       - name: Execute dotnet Build
-        run: dotnet build ASP_EXAMPLES -C Release
+        run: dotnet build  -C Release
