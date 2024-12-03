@@ -1,0 +1,24 @@
+name: countinus integration and deployment
+
+on:
+    push:
+        branches:
+            - main
+            
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet: [ '8.0.x' ]
+    name: Dotnet ${{ matrix.dotnet }} sample
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+      - name: restore dependencies
+        run: dotnet restore
+      - name: Execute dotnet
+        run: dotnet build ASP_EXAMPLES
