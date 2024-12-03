@@ -13,7 +13,9 @@ jobs:
         dotnet: [ '8.0.x' ]
     name: Dotnet ${{ matrix.dotnet }} sample
     steps:
-      - uses: actions/checkout@v4
+      - name: checkout dotnet
+        uses: actions/checkout@v4
+
       - name: Setup dotnet
         uses: actions/setup-dotnet@v4
         with:

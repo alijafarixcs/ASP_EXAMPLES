@@ -10,7 +10,7 @@ namespace ASP_EXAMPLES.Controllers
 
         public HomeController(ILogger<HomeController> logger)
         {
-            _logger = logger;
+            _logger = logger;//Fine
         }
 
         public IActionResult Index()
