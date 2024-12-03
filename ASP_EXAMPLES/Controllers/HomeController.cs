@@ -15,7 +15,7 @@ namespace ASP_EXAMPLES.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View();//view
         }
 
         public IActionResult Privacy()
