@@ -20,7 +20,11 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ matrix.dotnet }}
+
+
       - name: restore dependencies
         run: dotnet restore
-      - name: Execute dotnet
-        run: dotnet build ASP_EXAMPLES
+
+
+      - name: Execute dotnet Build
+        run: dotnet build ASP_EXAMPLES -C Release
