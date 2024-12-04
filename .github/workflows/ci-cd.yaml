@@ -28,3 +28,6 @@ jobs:
 
       - name: Execute dotnet Build
         run: dotnet build -c Release
+
+      - name: run test Automate
+        run: dotnet test -c Release
