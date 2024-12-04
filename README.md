@@ -1,4 +1,4 @@
-# **ASP_EXAMPLES**  
+# **ASP_EXAMPLES**  [![countinus integration and deployment](https://github.com/alijafarixcs/ASP_EXAMPLES/actions/workflows/ci-cd.yaml/badge.svg)](https://github.com/alijafarixcs/ASP_EXAMPLES/actions/workflows/ci-cd.yaml)
 
 **ASP_EXAMPLES** is a collection of practical examples and tutorials for learning and building web applications using **ASP.NET Core**. This repository is designed to help developers of all skill levels gain hands-on experience with core concepts, best practices, and real-world scenarios in ASP.NET Core development.  
 
