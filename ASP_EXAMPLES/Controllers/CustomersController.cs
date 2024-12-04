@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.OData.Query;
-using Microsoft.AspNetCore.OData.Routing.Controllers;
+
 using Microsoft.EntityFrameworkCore;
 using OdataOrders.Data;
 using System;
@@ -9,19 +8,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OdataOrders.Controllers
+namespace ASP_EXAMPLES.Controllers
 {
-    public class CustomersController : ODataController
+    public class CustomersController : Controller
     {
-        private readonly OdataOrdersContext context;
+        private readonly dataOrdersContext context;
 
-        public CustomersController(OdataOrdersContext context)
+        public CustomersController(dataOrdersContext context)
         {
             this.context = context;
         }
 
-        [EnableQuery]
+        
         public IActionResult Get() => Ok(context.Customers);
+        public List<Customer> GetAll() => (context.Customers.ToList());
+
 
         [HttpPost]
         public async Task<IActionResult> Add(Customer c)

@@ -1,3 +1,8 @@
+using ASP_EXAMPLES.Controllers;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using OdataOrders.Data;
+
 namespace ASP_EXAMPLES.Test
 {
     public class UnitTest1
@@ -12,29 +17,30 @@ namespace ASP_EXAMPLES.Test
         public async Task CustomerIntegrationTest()
         {
             //// Create DB Context
-            //var configuration = new ConfigurationBuilder()
-            //    .AddJsonFile("appsettings.json")
-            //    .Build();
+            var configuration = new ConfigurationBuilder()
+               .AddJsonFile("appsettings.json")
+               .AddEnvironmentVariables()
+               .Build();
 
-            //var optionsBuilder = new DbContextOptionsBuilder<CustomerContext>();
-            //optionsBuilder.UseSqlServer(configuration["ConnectionStrings:DefaultConnection"]);
+            var optionsBuilder = new DbContextOptionsBuilder<dataOrdersContext>();
+            optionsBuilder.UseSqlServer(configuration["ConnectionStrings:DefaultConnection"]);
 
-            //var context = new CustomerContext(optionsBuilder.Options);
+            var context = new dataOrdersContext(optionsBuilder.Options);
 
-            //// Just to make sure: Delete all existing customers in the DB
-            //await context.Database.EnsureDeletedAsync();
-            //await context.Database.EnsureCreatedAsync();
+            // Just to make sure: Delete all existing customers in the DB
+            await context.Database.EnsureDeletedAsync();
+            await context.Database.EnsureCreatedAsync();
 
-            //// Create Controller
-            //var controller = new CustomersController(context);
+            // Create Controller
+            var controller = new CustomersController(context);
 
-            //// Add customer
-            //await controller.Add(new Customer() { CustomerName = "FooBar" });
+            // Add customer
+            await controller.Add(new Customer() { CustomerName = "FooBar", CountryId="12" });
 
-            //// Check: Does GetAll return the added customer?
-            //var result = (await controller.GetAll()).ToArray();
-            //Assert.Single(result);
-            //Assert.Equal("FooBar", result[0].CustomerName);
+            // Check: Does GetAll return the added customer?
+            var result = (controller.GetAll()).ToArray();
+            Assert.Single(result);
+            Assert.Equal("FooBar", result[0].CustomerName);
         
         Assert.Equal(1, 1);
 

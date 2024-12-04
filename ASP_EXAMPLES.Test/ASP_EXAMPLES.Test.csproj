@@ -17,6 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ASP_EXAMPLES\ASP_EXAMPLES.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
 
