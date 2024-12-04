@@ -35,7 +35,7 @@ jobs:
 
       - name: run test Automate
         env:
-          ConnectionStrings__DefaultConnection: "Server=localhost,5433;Database=customer;User=sa;Password=yourStrong(!)Password;Encrypt=False;"
+          ConnectionStrings__DefaultConnection: "Server=localhost,1433;Database=customer;User=sa;Password=yourStrong(!)Password;Encrypt=False;"
         run: dotnet test -c Release
 
       # - name: deploy on Azure
