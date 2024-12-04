@@ -21,11 +21,10 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet }}
           
-        env:
-          ConnectionStrings__DefaultConnection: "server=localhost;Database=defdb;User ID=sa;Password=Pass@word;"
+
           
       - name: Start SQL
-        run: docker run -e 'ACCEPT_EULA=Y' -e  'MSSQL_PID:Express' 'SA_PASSWORD=Pass@word' -p 5433:1433 -d mcr.microsoft.com/mssql/server:2017-latest
+        run: docker run -e 'ACCEPT_EULA=Y' -e  'SA_PASSWORD=Pass@word' -p 5433:1433 -d mcr.microsoft.com/mssql/server:2017-latest
               
       - name: restore dependencies
         run: dotnet restore
@@ -35,6 +34,8 @@ jobs:
         run: dotnet build -c Release
 
       - name: run test Automate
+        env:
+          ConnectionStrings__DefaultConnection: "server=localhost;Database=customer;User=sa;Password=Pass@word;"
         run: dotnet test -c Release
 
       # - name: deploy on Azure
