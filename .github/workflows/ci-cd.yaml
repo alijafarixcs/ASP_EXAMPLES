@@ -22,10 +22,10 @@ jobs:
           dotnet-version: ${{ matrix.dotnet }}
           
         env:
-          ConnectionStrings__DefaultConnection: "server=localhost;Database=defdb;User ID=sa;Password=Pass@word;Encrypt=False"
+          ConnectionStrings__DefaultConnection: "server=localhost;Database=defdb;User ID=sa;Password=Pass@word;"
           
       - name: Start SQL
-        run: docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Pass@word' -p 5433:1433 -d mcr.microsoft.com/mssql/server:2017-latest
+        run: docker run -e 'ACCEPT_EULA=Y' -e  'MSSQL_PID:Express' 'SA_PASSWORD=Pass@word' -p 5433:1433 -d mcr.microsoft.com/mssql/server:2017-latest
               
       - name: restore dependencies
         run: dotnet restore
