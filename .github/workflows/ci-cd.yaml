@@ -20,8 +20,11 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ matrix.dotnet }}
+          
 
-
+      - name: Start SQL
+        run: docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Pass@word' -p 5433:1433 -d mcr.microsoft.com/mssql/server:2017-latest
+              
       - name: restore dependencies
         run: dotnet restore
 
@@ -31,3 +34,9 @@ jobs:
 
       - name: run test Automate
         run: dotnet test -c Release
+
+      # - name: deploy on Azure
+      #   uses: azure/webapps-deploy@v2
+      #   with:
+      #     app-name: my_app_env_on_azure
+      #     publish-profile: ${{ secrets.ASP_EXAMPLE_Azure_Publish }}
