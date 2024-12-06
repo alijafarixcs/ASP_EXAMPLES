@@ -40,6 +40,63 @@
 - **Real-World Scenarios**: Learn techniques commonly used in production environments.  
 
 ---
+# ASP_EXAMPLES
+
+## Overview
+[Brief project description: what the project does and its main features.]
+
+---
+
+## Guiding Design Principles
+
+This project is built following the principles of **Clean Architecture** to ensure maintainability, scalability, and testability. Below is an outline of the principles and their implementation in this project:
+
+### 1. Separation of Concerns
+- **Description**: Each module is responsible for a single concern.
+- **Implementation**: [Explain which layers or modules handle UI, business logic, and data access.]
+
+### 2. Encapsulation
+- **Description**: Exposed only what is necessary in objects.
+- **Implementation**: [Explain how objects' state and behavior are protected, e.g., through interfaces or access modifiers.]
+
+### 3. Dependency Inversion
+- **Description**: High-level modules depend on abstractions.
+- **Implementation**: [Highlight usage of interfaces or dependency injection frameworks.]
+
+### 4. Explicit Dependencies
+- **Description**: Dependencies are clearly defined and injected.
+- **Implementation**: [Explain constructor or method injections used in classes.]
+
+### 5. Single Responsibility
+- **Description**: Each module/class has one reason to change.
+- **Implementation**: [Mention classes or services with focused functionality.]
+
+### 6. DRY (Don’t Repeat Yourself)
+- **Description**: Reusable components prevent duplication.
+- **Implementation**: [Reference shared libraries or utilities.]
+
+### 7. Persistence Ignorance
+- **Description**: Domain logic is independent of storage details.
+- **Implementation**: [Explain use of repositories or abstraction layers.]
+
+### 8. Bounded Contexts
+- **Description**: Clear boundaries between domains.
+- **Implementation**: [Describe separate contexts like modules or microservices.]
+
+---
+
+## Getting Started
+[Instructions on how to set up and run the project.]
+
+---
+
+## Contributing
+[Guidelines for contributing to the project.]
+
+---
+
+## License
+[Add your license information here.]
 
 ## **Getting Started**  
 
